@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-body
-{
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 50vh;
     background-color: #dbe8ff; /* Cor de fundo base (azul bem clarinho) */
   background-image: 
     linear-gradient(to right, rgba(91, 147, 245, 0.15) 1px, transparent 1px),
@@ -12,35 +18,46 @@ body
   background-size: 30px 30px; /* Tamanho de cada quadrado (largura x altura) */
 }
 .navbar {
-  display: flex;
-  justify-content: space-between; /* Empurra o brand para a esquerda e os links para a direita */
-  align-items: center;
-/* Garante que "Contatos" não cole na borda direita */
-  background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 15px;
+    width: 100%;
 }
-/* 1. Reduza um pouco a margem do título para dar espaço na direita */
+
 .navbar-brand {
-  margin-left: 20px;
-  margin-right: 40px; /* Se estiver maior que isso, diminua para 35px ou 40px */
-  font-family: 'Cormorant Garamond', sans-serif;
-  font-size: 30px;
-  white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 30px;
+    white-space: nowrap;
 }
 
-/* 2. Adicione um respiro na direita da lista de botões */
+.navbar-collapse {
+    flex-grow: 0;
+}
+
 .navbar-nav {
-  margin-right: 30px !important; /* Empurra "Contatos" para longe da borda direita */
-  gap:10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    margin-right: 10px !important;
 }
 
-/* 2. Em cada botão individual (.nav-link no singular) */
 .nav-link {
-  background-color: #dbe8ff;
-  border-radius: 20px;
-  padding: 5px 5px; /* 10px em cima/baixo e 16px nas laterais */
-  text-decoration: none;
-  color: #1e1e2e; /* ou a cor que você estiver usando no texto */
-  white-space: nowrap; /* Impede o texto de quebrar em duas linhas */
+    background-color: #dbe8ff;
+    border-radius: 20px;
+    padding: 6px 10px !important;
+    text-decoration: none;
+    color: #1e1e2e;
+    white-space: nowrap;
+    font-size: 14px;
 }
 .nav-link:hover {
   background-color: #5b93f5; /* Tom de azul mais forte */
@@ -49,14 +66,16 @@ body
   box-shadow: 0 4px 10px rgba(91, 147, 245, 0.4); /* Sombra suave combinando com o azul */
 }
 .hero-section {
-  display: flex;
-  align-items: center; /* Centraliza texto e foto na vertical */
-  justify-content: space-between; /* Separa as duas colunas */
-  max-width: 1100px; /* Limita a largura para não espalhar demais em telas grandes */
-  margin: 0 auto; /* Centraliza o bloco inteiro na página */
-  padding: 60px 30px;
-  gap: 50px; /* Espaço entre o texto e a foto */
-  min-height: 80vh; /* Ocupa boa parte da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    gap: 35px;
+    min-height: 80vh;
+    box-sizing: border-box;
 }
 
 /* Coluna da esquerda (Texto) */
@@ -121,32 +140,61 @@ body
 
 /* Coluna da direita (Foto) */
 .hero-foto {
-  flex: 1; /* Ocupa os outros 50% */
-  display: flex;
-  justify-content: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
 }
 
 .hero-foto img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover; /* Evita que a foto fique esticada/distorcida */
-  border-radius: 50%; /* Deixa a foto redonda (mude para 20px se preferir quadrada com cantos arredondados) */
-  border: 6px solid #ffffff; /* Borda branca para destacar no fundo azul */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 340px;
+    height: 340px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 35%;
+    border-radius: 50%;
+    border: 7px solid white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: block;
 }
+@media (max-width: 1100px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
 
-/* Responsivo: empilha foto e texto em telas de celular */
+    .navbar-collapse {
+        flex-basis: 100%;
+    }
+
+    .navbar-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px auto !important;
+    }
+}
 @media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column-reverse; /* Coloca a foto em cima e o texto embaixo no celular */
-    text-align: center;
-    padding: 40px 20px;
-  }
 
-  .hero-foto img {
-    width: 240px;
-    height: 240px;
-  }
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 25px;
+    }
+
+    .hero-texto {
+        width: 100%;
+    }
+
+    .hero-texto h1 {
+        font-size: 42px;
+    }
+
+    .hero-foto img {
+        width: 240px;
+        height: 240px;
+    }
 }
 .eusou
 {
