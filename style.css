@@ -38,7 +38,7 @@ body
 .nav-link {
   background-color: #dbe8ff;
   border-radius: 20px;
-  padding: 10px 10px; /* 10px em cima/baixo e 16px nas laterais */
+  padding: 5px 5px; /* 10px em cima/baixo e 16px nas laterais */
   text-decoration: none;
   color: #1e1e2e; /* ou a cor que você estiver usando no texto */
   white-space: nowrap; /* Impede o texto de quebrar em duas linhas */
