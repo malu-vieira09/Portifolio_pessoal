@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+body
+{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #dbe8ff; /* Cor de fundo base (azul bem clarinho) */
+  background-image: 
+    linear-gradient(to right, rgba(91, 147, 245, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 147, 245, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px; /* Tamanho de cada quadrado (largura x altura) */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Empurra o brand para a esquerda e os links para a direita */
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px; /* Garante que "Contatos" não cole na borda direita */
+  background-color: white;
+}
+/* 1. Reduza um pouco a margem do título para dar espaço na direita */
+.navbar-brand {
+  margin-left: 20px;
+  margin-right: 40px; /* Se estiver maior que isso, diminua para 35px ou 40px */
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+/* 2. Adicione um respiro na direita da lista de botões */
+.navbar-nav {
+  margin-right: 30px !important; /* Empurra "Contatos" para longe da borda direita */
+  gap:10px;
+}
+
+/* 2. Em cada botão individual (.nav-link no singular) */
+.nav-link {
+  background-color: #dbe8ff;
+  border-radius: 20px;
+  padding: 10px 10px; /* 10px em cima/baixo e 16px nas laterais */
+  text-decoration: none;
+  color: #1e1e2e; /* ou a cor que você estiver usando no texto */
+  white-space: nowrap; /* Impede o texto de quebrar em duas linhas */
+}
+.nav-link:hover {
+  background-color: #5b93f5; /* Tom de azul mais forte */
+  color: #ffffff; /* Texto fica branco para dar contraste */
+  transform: translateY(-2px); /* Dá uma leve levantada no botão */
+  box-shadow: 0 4px 10px rgba(91, 147, 245, 0.4); /* Sombra suave combinando com o azul */
+}
+.hero-section {
+  display: flex;
+  align-items: center; /* Centraliza texto e foto na vertical */
+  justify-content: space-between; /* Separa as duas colunas */
+  max-width: 1100px; /* Limita a largura para não espalhar demais em telas grandes */
+  margin: 0 auto; /* Centraliza o bloco inteiro na página */
+  padding: 60px 30px;
+  gap: 50px; /* Espaço entre o texto e a foto */
+  min-height: 80vh; /* Ocupa boa parte da altura da tela */
+}
+
+/* Coluna da esquerda (Texto) */
+.hero-texto {
+  flex: 2; /* Ocupa 50% do espaço disponível */
+  background-color: #bbd4ff;
+  padding:10px;
+  border-radius: 20px;
+}
+
+.hero-texto h1 {
+  font-family: 'Dancing Script', sans-serif; /* Mesma fonte elegante do seu navbar-brand */
+  font-size: 60px;
+  color: #1e1e2e;
+  margin-bottom: 20px;
+}
+.hero-texto h3{
+  font-family: 'Playfair Display', serif; /* Mesma fonte elegante do seu navbar-brand */
+  font-size: 30px;
+  color: hsl(192, 100%, 99%);
+  margin-bottom: 20px;
+}
+.hero-texto h4{
+  font-family: 'Playfair Display', serif; /* Mesma fonte elegante do seu navbar-brand */
+  font-size: 25px;
+  color: #3737ff;
+  margin-bottom: 20px;
+}
+
+.hero-texto i {
+  font-size: 25px;
+  font-family: 'Cormorant Garamond', sans-serif;
+  color: #00008f;
+  margin-bottom: 24px;
+  font-style: bold;
+}
+.hero-texto p {
+  font-size: 23px;
+  font-family: 'Cormorant Garamond', sans-serif;
+  line-height: 1.6;
+  color: #0000ff;
+  margin-bottom: 24px;
+}
+
+/* Botão combinando com a navbar */
+.btn-destaque {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #1e1e2e;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-destaque:hover {
+  background-color: #5b93f5;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Coluna da direita (Foto) */
+.hero-foto {
+  flex: 1; /* Ocupa os outros 50% */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-foto img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover; /* Evita que a foto fique esticada/distorcida */
+  border-radius: 50%; /* Deixa a foto redonda (mude para 20px se preferir quadrada com cantos arredondados) */
+  border: 6px solid #ffffff; /* Borda branca para destacar no fundo azul */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsivo: empilha foto e texto em telas de celular */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse; /* Coloca a foto em cima e o texto embaixo no celular */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-foto img {
+    width: 240px;
+    height: 240px;
+  }
+}
+.eusou
+{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.fraseinicial
+{
+    background-color: #bbd4ff;
+    padding: 20px;
+    border-radius: 30px;
+}
+.fraseinicial h1
+{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Bodoni Moda', sans-serif;
+}
+.fraseinicial p
+{
+    font-family: 'Playfair Display', serif; 
+    text-align: center;
+    font-size: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 30px;
+}
+.eusou{
+  max-width: 1000px; /* Define a largura máxima exata das colunas */
+  margin: 0 auto;    /* Centraliza na tela */
+  padding: 40px 20px;
+}
+
+/* Cada seção dividida em 2 colunas exatamente iguais (50% / 50%) */
+.bloco-alternado {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Força as duas colunas a terem a mesma largura exata */
+  align-items: center;
+  gap: 60px; /* Espaço fixo no meio entre foto e texto */
+  margin-bottom: 80px;
+}
+
+/* Inverte os lados nas seções pares mantendo o alinhamento reto */
+.bloco-alternado:nth-child(even) .bloco-texto {
+  order: 2;
+}
+
+.bloco-alternado:nth-child(even) .bloco-foto {
+  order: 1;
+}
+
+/* Garante que a imagem ocupe 100% da sua coluna para alinhar com a borda do texto de cima */
+.bloco-foto {
+  width: 100%;
+}
+
+.bloco-foto img {
+  width: 100%;       /* Faz todas as fotos terem a mesma largura exata */
+  height: 600px;     /* Faz todas as fotos terem a mesma altura exata */
+  object-fit: cover; /* Corta sem esticar */
+  border-radius: 20px;
+  border: 5px solid #6b9df2;
+  display: block;
+}
+.bloco-texto
+{
+    background-color: #aecafa;
+    padding:20px;
+    border-radius: 30px;
+}
+
+.bloco-texto h2
+{
+    font-family: 'Dancing Script', sans-serif;
+}
+.bloco-texto p
+{
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Responsivo no celular */
+@media (max-width: 768px) {
+  .bloco-alternado {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  /* No celular, coloca sempre a foto em cima (order: 1) e texto embaixo (order: 2) */
+  .bloco-alternado .bloco-foto,
+  .bloco-alternado:nth-child(even) .bloco-foto {
+    order: 1;
+  }
+
+  .bloco-alternado .bloco-texto,
+  .bloco-alternado:nth-child(even) .bloco-texto {
+    order: 2;
+  }
+}
+
+/* Organiza os spans lado a lado com espaço entre eles */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* Estiliza cada <span> individualmente */
+.tags span {
+  display: inline-block;
+  background-color: #ffffff;       /* Fundo branco para destacar no quadriculado */
+  color: #2b5bb5;                  /* Texto azul escuro */
+  border: 1.5px solid #96bcfa;     /* Borda no mesmo azul da sua navbar */
+  padding: 6px 14px;               /* Espaço interno (altura x largura) */
+  border-radius: 20px;             /* Deixa as pontas bem arredondadas */
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;       /* Prepara para um efeito suave */
+}
+
+/* Opcional: leve destaque quando passar o mouse por cima */
+.tags span:hover {
+  background-color: #96bcfa;
+  color: #1e1e2e;
+  transform: translateY(-2px);
+}
+
+.titulo-linha h1
+{
+    text-align: center;
+    font-family: 'Bodoni Moda', sans-serif;
+}
+.imagem-linha {
+  max-width: 1000px; /* Mesma largura máxima das seções de cima para manter tudo alinhado */
+  margin: 40px auto; /* Centraliza o bloco na página e dá espaço em cima/embaixo */
+  padding: 0 20px;   /* Garante que não encoste nas bordas em telas menores */
+  text-align: center;
+}
+
+.imagem-linha img {
+  width: 100%;          /* Ocupa toda a largura disponível do contêiner */
+  max-width: 900px;     /* Evita que fique gigante demais em monitores muito largos */
+  height: auto;         /* Ajusta a altura proporcionalmente sem cortar nem esticar */
+  border-radius: 20px;  /* Mesmo arredondamento das outras fotos */
+  border: 5px solid #6b9df2; /* Mesma borda azul do resto do portfólio */
+  box-shadow: 0 8px 20px rgba(91, 147, 245, 0.2);
+  display: inline-block;
+}
+
+.trajetoria
+{
+    max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.dois-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Cria 2 colunas de largura idêntica */
+  gap: 24px;                      /* Espaço entre os dois cards */
+  max-width: 1000px;              /* Alinha com a largura do restante do seu site */
+  margin: 40px auto;              /* Centraliza na tela */
+  padding: 0 20px;
+}
+
+/* Empilha um embaixo do outro no celular */
+@media (max-width: 768px) {
+  .dois-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.grade-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide em 2 colunas exatas embaixo */
+  gap: 24px; /* Espaço entre o card de cima e os de baixo, e entre as duas colunas */
+}
+
+/* Faz o card de cima esticar da primeira até a última coluna */
+.card-destaque {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row !important; /* Garante que texto e foto fiquem lado a lado, mesmo com Bootstrap */
+  align-items: center;            /* Centraliza texto e foto na vertical */
+  justify-content: space-between;
+  gap: 30px;                      /* Espaço entre o texto e a foto */
+}
+
+.card-conteudo {
+  flex: 1; /* Texto ocupa cerca de 60% do card */
+}
+
+.card-conteudo h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.card-conteudo h3 {
+  font-size: 25px;
+  color: #2b5bb5;
+  margin-bottom: 14px;
+  font-family: 'Playfair Display', serif; 
+}
+.card-conteudo p
+{
+    font-family: 'DM Sans', sans-serif;
+}
+
+.card-imagem {
+  flex: 1; /* Imagem ocupa os outros 40% */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-imagem img {
+  width: 100%;
+  max-width: 320px;
+  height: 400px;
+  object-fit: cover; /* Evita que a foto fique esticada */
+  border-radius: 16px;
+  border: 3px solid #96bcfa;
+}
+
+/* Empilha no celular para não espremer o texto */
+@media (max-width: 768px) {
+  .card-destaque {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .card-imagem {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Estilo visual dos cards (combinando com seu tema azul e fundo quadriculado) */
+.card {
+  background-color: rgba(255, 255, 255, 0.9); /* Branco levemente translúcido */
+  border: 2px solid #96bcfa;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(91, 147, 245, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px); /* Leve flutuação ao passar o mouse */
+}
+.card h3
+{
+    color:#2b5bb5;
+    font-family: 'Cormorant Garamond', serif;
+    font-size:30px;
+}
+.card1 {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row !important; /* Garante que texto e foto fiquem lado a lado, mesmo com Bootstrap */
+  align-items: center;            /* Centraliza texto e foto na vertical */
+  justify-content: space-between;
+  gap: 30px;                      
+    background-color: rgba(255, 255, 255, 0.9); /* Branco levemente translúcido */
+  border: 2px solid #96bcfa;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(91, 147, 245, 0.15);
+  transition: transform 0.3s ease;
+}
+.card1:hover {
+  transform: translateY(-4px); /* Leve flutuação ao passar o mouse */
+}
+.card1 h3
+{
+    color:#2b5bb5;
+    font-family: 'Cormorant Garamond', serif;
+    font-size:30px;
+}
+/* Contêiner para permitir rolagem horizontal no celular sem quebrar a página */
+.tabela-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  overflow-x: auto;
+}
+
+.tabela-portfolio {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid #96bcfa;
+  border-radius: 20px;
+  overflow: hidden; /* Faz o cabeçalho azul respeitar os cantos arredondados */
+  box-shadow: 0 8px 20px rgba(91, 147, 245, 0.15);
+}
+
+/* Cabeçalho da tabela */
+.tabela-portfolio thead {
+  background-color: #96bcfa;
+  color: #1e1e2e;
+}
+
+.tabela-portfolio th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Células de dados */
+.tabela-portfolio td {
+  padding: 14px 20px;
+  border-top: 1px solid #dbe8ff;
+  color: #2c2c3e;
+  font-size: 15px;
+}
+
+/* Efeito zebrado suave nas linhas pares */
+.tabela-portfolio tbody tr:nth-child(even) {
+  background-color: #f4f8ff;
+}
+
+/* Destaque ao passar o mouse na linha */
+.tabela-portfolio tbody tr:hover {
+  background-color: #e3eeff;
+  transition: background-color 0.2s ease;
+}
+
+/* Centraliza o texto das colunas na vertical em relação à imagem */
+.tabela-portfolio td {
+  vertical-align: middle;
+}
+
+/* Estiliza a imagem dentro da coluna Evidência */
+.tabela-portfolio td img {
+  width: 140px;          /* Largura compacta para caber bem na coluna */
+  height:200px;         /* Altura proporcional */
+  object-fit: cover;     /* Preenche o retângulo sem esticar nem distorcer a foto */
+  border-radius: 12px;   /* Cantos arredondados combinando com a tabela */
+  border: 2px solid #96bcfa;
+  display: block;
+}
+.card-projeto1
+{
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row !important; /* Garante que texto e foto fiquem lado a lado, mesmo com Bootstrap */
+  align-items: center;            /* Centraliza texto e foto na vertical */
+  justify-content: space-between;                 /* Espaço entre o texto e a foto */
+}
+.projetos
+{
+    max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.meta1
+{
+   max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+}
+.meta1 h3
+{
+  font-family: 'Dancing Script', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color:#7aa1e9
+}
+.meta1 p
+{
+  font-family: 'DM Sans', sans-serif;
+}
+.meta2
+{
+   max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+}
+.meta2 h3
+{
+  font-family: 'Dancing Script', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color:#43639e
+}
+.meta2 p
+{
+  font-family: 'DM Sans', sans-serif;
+}
+.meta3
+{
+   max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+}
+.meta3 h3
+{
+  font-family: 'Dancing Script', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color:#2d4574
+}
+.meta3 p
+{
+  font-family: 'DM Sans', sans-serif;
+}
+
+.informações
+{
+   max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+}
+.informações h3
+{
+  font-family: 'Dancing Script', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color:#2d4574
+}
+.informações p
+{
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+}
+.informações .email
+{
+  text-align: center;
+  font-size: 20px;
+}
+.email1
+{
+  background-color: #9cc0fd;
+  border-radius: 30px;
+  padding: 20px;
+}
+.telefone1
+{
+  background-color: #c4d9fd;
+  border-radius: 30px;
+  padding: 20px;
+}
+.telefone
+{
+    text-align: center;
+  font-size: 20px;
+}
+.mensagem h3
+{
+  font-size: 30px;
+    text-align: center;
+    font-family: 'Bodoni Moda', sans-serif;
+}
+.mensagemfinal
+{
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 20px;
+   max-width: 1000px;
+  margin: 40px auto;
+}
