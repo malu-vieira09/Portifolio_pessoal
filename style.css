@@ -15,8 +15,7 @@ body
   display: flex;
   justify-content: space-between; /* Empurra o brand para a esquerda e os links para a direita */
   align-items: center;
-  padding-left: 30px;
-  padding-right: 30px; /* Garante que "Contatos" não cole na borda direita */
+/* Garante que "Contatos" não cole na borda direita */
   background-color: white;
 }
 /* 1. Reduza um pouco a margem do título para dar espaço na direita */
